@@ -1,0 +1,51 @@
+:host {
+  main {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+    padding: 0 10px;
+    backdrop-filter: blur(8px);
+    background-color: var(--header-color);
+
+    & > * {
+      flex: 1;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    section.controls {
+      display: flex;
+      gap: 10px;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 1360px) {
+      .spacer {
+        flex: 0.5;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .spacer {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        display: none;
+      }
+    }
+  }
+}

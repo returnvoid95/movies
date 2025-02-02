@@ -1,0 +1,10 @@
+<main>
+  <section class="scrollable">
+    <app-search-result
+      [movies]="movies$ | async"
+      [loading]="(loading$ | async) && page === 1"
+      [selectedMovieIndex]="selectedMovieIndex"
+      (cardClick)="onCardClick($event)"
+    ></app-search-result>
+  </section>
+</main>

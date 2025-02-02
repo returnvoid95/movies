@@ -1,0 +1,15 @@
+<main
+  #main
+  [class.skeleton]="skeleton"
+  (click)="cardClick.emit()"
+  [class.selected]="selected"
+>
+  <div *ngIf="movie?.rating?.kp" class="rating">
+    {{ round(movie?.rating?.kp) }}
+  </div>
+  <img
+    *ngIf="movie?.poster?.previewUrl"
+    [ngSrc]="movie?.poster?.previewUrl ?? ''"
+    fill
+  />
+</main>

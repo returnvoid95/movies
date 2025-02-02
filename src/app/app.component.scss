@@ -1,0 +1,20 @@
+:host {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-color);
+
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    section.scrollable {
+      flex-grow: 1;
+      overflow: auto;
+      padding-block-start: 60px; //Height of header
+
+      background: linear-gradient(135deg, #141e30, #243b55);
+    }
+  }
+}

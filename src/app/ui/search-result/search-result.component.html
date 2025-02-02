@@ -1,0 +1,11 @@
+<ng-container *ngIf="!loading; else loadingBlock">
+  <app-movie-card
+    *ngFor="let movie of movies; trackBy: trackByFn; let i = index;"
+    [movie]="movie"
+    [selected]="i === selectedMovieIndex"
+    (cardClick)="onCardClick(movie)"
+  ></app-movie-card>
+</ng-container>
+<ng-template #loadingBlock>
+  <app-movie-card *ngFor="let skeleton of arrayOfSkeletons" [skeleton]="true"></app-movie-card>
+</ng-template>
