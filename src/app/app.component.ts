@@ -102,7 +102,10 @@ export class AppComponent implements OnInit {
     if (this.selectedMovieIndex === null) {
       this.selectedMovieIndex = 0;
     } else {
-      this.selectedMovieIndex = Math.max(0, this.selectedMovieIndex - 5);
+      this.selectedMovieIndex = Math.max(
+        0,
+        this.selectedMovieIndex - this.getColumnsCount()
+      );
     }
   }
 
@@ -114,7 +117,8 @@ export class AppComponent implements OnInit {
     if (this.selectedMovieIndex === null) {
       this.selectedMovieIndex = 0;
     } else {
-      this.selectedMovieIndex = this.selectedMovieIndex + 5;
+      this.selectedMovieIndex =
+        this.selectedMovieIndex + this.getColumnsCount();
     }
   }
 
@@ -140,5 +144,24 @@ export class AppComponent implements OnInit {
     } else {
       this.selectedMovieIndex = this.selectedMovieIndex + 1;
     }
+  }
+
+  private getColumnsCount() {
+    const width = this.getWindowWidth();
+    if (width > 1600) {
+      return 5;
+    } else if (width > 1360) {
+      return 4;
+    } else if (width > 960) {
+      return 3;
+    } else if (width > 480) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+
+  private getWindowWidth() {
+    return window.innerWidth;
   }
 }
